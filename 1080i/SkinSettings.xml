@@ -21,10 +21,18 @@
         </include>
 
         <include content="Settings_Dialog">
-            <include content="Settings_Main_Group">
-                <include content="Settings_Left_Group">
-                    <include content="Settings_Left_Content">
+            <include content="Settings_Main_Group">	
+                <include content="Settings_Left_Group">			
+                    <include content="Settings_Left_Content">	
+						<include content="Settings_Arrows">
+							<param name="arrow_prev_visible">Container(3).HasPrevious</param>
+							<param name="arrow_next_visible">Container(3).HasNext</param>
+							<param name="arrow_centerleft">250</param>
+							<param name="arrow_top">-50</param>
+							<param name="arrow_bottom">30</param>	
+						</include> 
                         <control type="list" id="3">
+							<height>720</height> 
                             <onleft>30000</onleft>
                             <!-- <onup>30032</onup> -->
                             <onright>5</onright>
@@ -58,6 +66,7 @@
                                     </control>
                                 </control>
                             </focusedlayout>
+							
                             <content>
                                 <item id="1">
                                     <label>$LOCALIZE[31177]</label>
@@ -84,12 +93,16 @@
                                     <label>$LOCALIZE[10039]</label>
                                 </item>
                                 <item id="9">
+                                    <label>Changelog</label>
+                                </item>
+								<item id="10">
                                     <label>$LOCALIZE[31350]</label>
                                 </item>
                             </content>
                         </control>
                     </include>
                 </include>
+				
                 <include content="Settings_Right_Group">
                     <param name="arrow_prev_visible">Container(5).HasPrevious</param>
                     <param name="arrow_next_visible">Container(5).HasNext</param>
@@ -1420,21 +1433,49 @@
                             <onclick>Skin.ToggleSetting(DebugGrid)</onclick>
                             <selected>Skin.HasSetting(DebugGrid)</selected>
                         </include>
-
+						
+						<!-- Changelog -->
+                        <include content="Settings_Label" description="Changelog">
+                            <param name="id">8900</param>
+                            <label>$LOCALIZE[24036]</label>
+                            <visible>Container(3).HasFocus(9)</visible>
+                        </include>	
+						<control type="group" id="8901">	
+							<control type="label" id="8902">
+								<top>40</top>
+								<font>font_head_bold</font>
+								<textcolor>main_fg_70</textcolor>                                                        						
+								<label>$INFO[System.AddonVersion(skin.arctic.fuse.mod),v]</label>
+								<visible>Container(3).HasFocus(9)</visible>
+								<left>40</left>
+								<right>40</right>
+							</control>
+							<control type="textbox" id="8903">
+								<top>80</top>
+								<font>font_mini_plot</font>
+								<textcolor>main_fg_70</textcolor>                           
+								<height>600</height>
+								<autoscroll delay="6000" time="3000" repeat="10000">true</autoscroll>							
+								<label>$VAR[Label_Changelog]</label>
+								<visible>Container(3).HasFocus(9)</visible>
+								<left>40</left>
+								<right>40</right>
+							</control>
+						 </control>	
                         <!-- Thanks -->
                         <include content="Settings_Label" description="Thanks">
-                            <param name="id">8900</param>
+                            <param name="id">8904</param>
                             <label>$LOCALIZE[31350]</label>
-                            <visible>Container(3).HasFocus(9)</visible>
+                            <visible>Container(3).HasFocus(10)</visible>
                         </include>
-                        <control type="textbox" id="8901">
+                        <control type="textbox" id="8905">
                             <font>font_mini_plot</font>
                             <textcolor>main_fg_70</textcolor>
                             <top>20</top>
                             <height>600</height>
                             <autoscroll delay="6000" time="3000" repeat="10000">true</autoscroll>
-                            <label>To all my amazing supporters on Ko-fi, thank-you![CR][CR]A special thanks to this month's (and last month's because I missed an update!) supporters[CR]eesdil(x2) Bindou Rinicko booyakafoo(x2) Aemstel celiofk Omars-Comin Ivan Adamosborne83(x2) Bilyzaou[CR][CR]And to all my supporters over the years[CR]Blurayx Anthrax DanielSanchez Leo meesterexx roidy manfeed PizzaPino dolbel Tobby Kagz DrFireStarterBilly Qirat77 Darkmantom TomH richieNZ99 Brambo onlytanmoy reddituser aemstel mash2k3 chopp8 Homeslixe Rimma JacopoV ray2301 stelcodes eengert alKODIque Tee77 Ch3dd4rGoblin silentscreamiong Jshn Ian JP RZ daviddia5 Jathlon77 SteveF George sito1961 devolute f39 nevermind Shone TechXXX c0ncr3t0 tim Tiago IG Spork lhimo DROIDsheild Blacky Bindou Velimir ronaldoA8ff Omar_alhajlh pferreira1906 Andrea1998 Mr-7mdan pakraider Nipius Nathan valleycake adamosborne83 AdamNo2 realcopacetic Mardup 666jones AliasAllison916 Rara Omars-Comin abaillargeon Caretaker BigRedJim Blaire Zeplumber Timmyrocks jasongrey rien333 Tsweazy booyakafoo DROIDshield ambulancepilot ludovik35 SJ10 JS Ivan Subin Binky dstealth Dml2023 Campos anon Mongoose18 william_teele Mike Tjoe70s simcheftv xpeiro[CR][CR]If I've forgotten anyone please let me know!</label>
-                            <visible>Container(3).HasFocus(9)</visible>
+                            <label>Coming Soon!</label>
+                            <visible>Container(3).HasFocus(10)</visible>
                             <left>40</left>
                             <right>40</right>
                         </control>

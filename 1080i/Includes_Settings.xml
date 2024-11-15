@@ -69,6 +69,9 @@
         <param name="arrow_prev_visible">false</param>
         <param name="arrow_next_visible">false</param>
         <param name="colordiffuse">dialog_fg_70</param>
+		<param name="arrow_centerleft">50%</param>
+		<param name="arrow_top">-30</param>
+		<param name="arrow_bottom">-30</param>		
         <definition>
             <control type="group">
                 <nested />
@@ -76,16 +79,16 @@
                     <texture colordiffuse="$PARAM[colordiffuse]">special://skin/extras/icons/angle-up.png</texture>
                     <height>40</height>
                     <width>40</width>
-                    <top>-30</top>
-                    <centerleft>50%</centerleft>
+                    <top>$PARAM[arrow_top]</top>
+                    <centerleft>$PARAM[arrow_centerleft]</centerleft>
                     <visible>$PARAM[arrow_prev_visible]</visible>
                 </control>
                 <control type="image">
                     <texture colordiffuse="$PARAM[colordiffuse]" flipy="true">special://skin/extras/icons/angle-up.png</texture>
                     <height>40</height>
                     <width>40</width>
-                    <bottom>-30</bottom>
-                    <centerleft>50%</centerleft>
+                    <bottom>$PARAM[arrow_bottom]</bottom>
+                    <centerleft>$PARAM[arrow_centerleft]</centerleft>
                     <visible>$PARAM[arrow_next_visible]</visible>
                 </control>
             </control>

@@ -150,10 +150,10 @@
     </variable>
 
     <variable name="Label_Settings_InfoText_Sub">
-        <value condition="System.HasVisibleModalDialog | ControlGroup(30030).HasFocus() | ControlGroup(30000).HasFocus() | ControlGroup(30040).HasFocus() | ControlGroup(30700).HasFocus() | Control.HasFocus(60)">$INFO[System.BuildVersion,Kodi ,]</value>
+        <value condition="System.HasVisibleModalDialog | ControlGroup(30030).HasFocus() | ControlGroup(30000).HasFocus() | ControlGroup(30040).HasFocus() | ControlGroup(30700).HasFocus() | Control.HasFocus(60)">$INFO[System.BuildVersion,Kodi ,]$INFO[System.AddonVersion(skin.arctic.fuse.mod), • AFMod v,]</value>
         <value condition="Window.IsVisible(SettingsCategory.xml) + [ControlGroup(3).HasFocus() | ControlGroup(5).HasFocus()]">$INFO[Control.GetLabel(6)]</value>
         <value condition="Window.IsVisible(addonbrowser) + Control.HasFocus(50)">$INFO[Container(50).ListItem.AddonVersion,v,]$INFO[Container(50).ListItem.AddonOrigin, • ,]$INFO[Container(50).ListItem.AddonCreator, • ,]$INFO[Container(50).ListItem.AddonDescription,[CR],]</value>
-        <value>$INFO[System.BuildVersion,Kodi ,]</value>
+        <value>$INFO[System.BuildVersion,Kodi ,]$INFO[System.AddonVersion(skin.arctic.fuse.mod), • AFMod v,]</value>
     </variable>
 
     <variable name="Label_Scrollbar_Content">
@@ -1751,5 +1751,13 @@
 
         <value>$LOCALIZE[571]</value>
     </variable>
+	
+	<variable name="Label_Changelog">
+		<value>- Info panel now has 3 lines of plot
+- New exanded option with artwork for 'Open path in dialog'
+- HDR pop up logos (Experimental)
+- Fixed Context Menu not pulling titles and images (poster and fanart)
+		</value>		
+	</variable>
 
 </includes>
