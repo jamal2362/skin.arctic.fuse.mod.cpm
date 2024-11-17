@@ -6,7 +6,7 @@ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisc
 
 ### Share your setups!
 
-Head over to the forum to share your ideas https://https://forum.kodi.tv/showthread.php?tid=379344
+Head over to the forum to share your ideas https://forum.kodi.tv/showthread.php?tid=379344
 
 
 ### Artwork attributions
