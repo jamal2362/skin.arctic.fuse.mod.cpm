@@ -23,12 +23,12 @@
     </include>
 
     <variable name="Dialog_Background_Blur_Adaptive_ColorDiffuse">
-        <value condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">12ededed</value>
+        <value condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">44ffffff</value>
         <value>dialog_fg_30</value>
     </variable>
 
     <variable name="Dialog_Background_Blur_Adaptive_Texture">
-        <value condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">special://skin/extras/icons/_none.png</value>
+        <value condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">$INFO[Skin.String(Background.Image)]</value>
         <value>$VAR[Image_Background]</value>
     </variable>
 

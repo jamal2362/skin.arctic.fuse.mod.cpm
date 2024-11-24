@@ -13,6 +13,8 @@
             <param name="font_light">Outfit-Light.ttf</param>
             <param name="aspect_system">0.8</param>
             <param name="aspect_standard">1</param>
+			<param name="title_linespacing">0.9</param>
+			<param name="plot_linespacing">1.06</param>
         </include>
     </fontset>
 
@@ -24,6 +26,8 @@
             <param name="font_light">Nunito-Light.ttf</param>
             <param name="aspect_system">0.8</param>
             <param name="aspect_standard">1</param>
+			<param name="title_linespacing">0.8</param>
+			<param name="plot_linespacing">1.0</param>
         </include>
     </fontset>
 
@@ -35,6 +39,8 @@
             <param name="font_light">Inter-Light.ttf</param>
             <param name="aspect_system">0.8</param>
             <param name="aspect_standard">1</param>
+			<param name="title_linespacing">0.9</param>
+			<param name="plot_linespacing">1.1</param>
         </include>
     </fontset>
 

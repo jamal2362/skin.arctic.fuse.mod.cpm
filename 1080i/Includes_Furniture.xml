@@ -5,7 +5,7 @@
         <param name="enabled">true</param>
         <param name="id" />
         <param name="label">[CAPITALIZE]$VAR[Label_Header_Main][/CAPITALIZE]</param>
-        <param name="textcolor">main_fg_100</param>
+        <param name="textcolor">main_fg_50</param>
         <param name="textcolor_sublabel">main_fg_70</param>
         <param name="shadowcolor_sublabel">main_bg_12</param>
         <param name="include_topbar_animation">$EXP[Exp_HomeMenu_IsTopBar]</param>

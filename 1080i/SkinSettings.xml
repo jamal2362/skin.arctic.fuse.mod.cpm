@@ -789,11 +789,11 @@
                             <param name="dialog">true</param>
                             <param name="id">6008</param>
                             <param name="control">button</param>
-                            <label>$LOCALIZE[335] [LOWERCASE]$LOCALIZE[20410] $LOCALIZE[21408][/LOWERCASE] X [LOWERCASE]$LOCALIZE[31130][/LOWERCASE] ($LOCALIZE[10000] & $LOCALIZE[31105])</label>
+                            <label>$VAR[Trailers_Home_Spotlight]</label>
 							<visible>Container(3).HasFocus(6)</visible>
                             <label2>$VAR[Trailers_Delay,,s]</label2>
                             <onclick>Skin.SetNumeric(Start_Trailer)</onclick>
-							<visible>Skin.HasSetting(Trailers.EnableAutoPlayback.Info) + Skin.HasSetting(Trailers.EnableAutoPlayback.Home)</visible>
+							<visible>[Skin.HasSetting(Trailers.EnableAutoPlayback) | Skin.HasSetting(Trailers.EnableAutoPlayback.Home)]</visible>
                         </include>
 						<include content="Settings_Button" description="HDR Logo Pop-up">
 							<param name="dialog">true</param>
@@ -812,8 +812,7 @@
 							<label>Choose HDR formats supported by your display</label>
 							<visible>Container(3).HasFocus(6)</visible>
 							<label2>$VAR[Label_HDRLogo_Type]</label2>
-							<onclick condition="String.IsEmpty(OSD.HDRPopUp)">Skin.SetString(OSD.HDRPopUp,None)</onclick>
-							<onclick condition="Skin.String(OSD.HDRPopUp,None)">Skin.SetString(OSD.HDRPopUp,DV)</onclick>
+							<onclick condition="String.IsEmpty(OSD.HDRPopUp)">Skin.SetString(OSD.HDRPopUp,DV)</onclick>							
 							<onclick condition="Skin.String(OSD.HDRPopUp,DV)">Skin.SetString(OSD.HDRPopUp,HDR10)</onclick>
 							<onclick condition="Skin.String(OSD.HDRPopUp,HDR10)">Skin.SetString(OSD.HDRPopUp,HLG)</onclick>
 							<onclick condition="Skin.String(OSD.HDRPopUp,HLG)">Skin.SetString(OSD.HDRPopUp,All)</onclick>
@@ -884,6 +883,7 @@
                             <label>$LOCALIZE[31481] ($LOCALIZE[31105])</label>
                             <visible>Container(3).HasFocus(6)</visible>
                             <onclick>Skin.ToggleSetting(Trailers.EnableAutoPlayback)</onclick>
+							<onclick condition="String.IsEmpty(Start_Trailer)">Skin.SetString(Start_Trailer,5)</onclick>
                             <selected>Skin.HasSetting(Trailers.EnableAutoPlayback)</selected>
                         </include>
                         <include content="Settings_Button" description="Play trailer auto information">
@@ -903,6 +903,7 @@
                             <label>$LOCALIZE[31481] ($LOCALIZE[10000])</label>
                             <visible>Container(3).HasFocus(6)</visible>
                             <onclick condition="Skin.HasSetting(Trailers.EnableAutoPlayback.Info)">Skin.ToggleSetting(Trailers.EnableAutoPlayback.Home)</onclick>
+							<onclick condition="String.IsEmpty(Start_Trailer)">Skin.SetString(Start_Trailer,5)</onclick>
                             <selected>Skin.HasSetting(Trailers.EnableAutoPlayback.Home)</selected>
                             <visible>!Skin.HasSetting(Background.DisableVideo) + Skin.HasSetting(Trailers.EnableAutoPlayback.Info)</visible>
                         </include>
@@ -963,6 +964,18 @@
                             <onclick>RunScript(script.skinvariables,run_dialog=select,preselect=$VAR[Label_Setting_PremiereStatus_Preselect],heading=$LOCALIZE[126],separator=||,list=$LOCALIZE[13106]||$LOCALIZE[20343]: $LOCALIZE[10036]||$LOCALIZE[20343]: $LOCALIZE[31137]||$LOCALIZE[20342]: $LOCALIZE[10036]||$LOCALIZE[20342]: $LOCALIZE[31137]||$LOCALIZE[21475]: $LOCALIZE[10036]||$LOCALIZE[21475]: $LOCALIZE[31137],"executebuiltin_0=Skin.SetBool(CustomRating.TVShows.DisablePremiereStatus)||Skin.Reset(CustomRating.Movies.EnablePremiereStatus)||Skin.Reset(CustomRating.EnablePremiereStatusDates)","executebuiltin_1=Skin.Reset(CustomRating.TVShows.DisablePremiereStatus)||Skin.Reset(CustomRating.Movies.EnablePremiereStatus)||Skin.Reset(CustomRating.EnablePremiereStatusDates)","executebuiltin_2=Skin.Reset(CustomRating.TVShows.DisablePremiereStatus)||Skin.Reset(CustomRating.Movies.EnablePremiereStatus)||Skin.SetBool(CustomRating.EnablePremiereStatusDates)","executebuiltin_3=Skin.SetBool(CustomRating.TVShows.DisablePremiereStatus)||Skin.SetBool(CustomRating.Movies.EnablePremiereStatus)||Skin.Reset(CustomRating.EnablePremiereStatusDates)","executebuiltin_4=Skin.SetBool(CustomRating.TVShows.DisablePremiereStatus)||Skin.SetBool(CustomRating.Movies.EnablePremiereStatus)||Skin.SetBool(CustomRating.EnablePremiereStatusDates)","executebuiltin_5=Skin.Reset(CustomRating.TVShows.DisablePremiereStatus)||Skin.SetBool(CustomRating.Movies.EnablePremiereStatus)||Skin.Reset(CustomRating.EnablePremiereStatusDates)","executebuiltin_6=Skin.Reset(CustomRating.TVShows.DisablePremiereStatus)||Skin.SetBool(CustomRating.Movies.EnablePremiereStatus)||Skin.SetBool(CustomRating.EnablePremiereStatusDates)")</onclick>
 
                             <selected>!Skin.HasSetting(CustomRating.TVShows.DisablePremiereStatus) | Skin.HasSetting(CustomRating.Movies.EnablePremiereStatus)</selected>
+                        </include>
+						
+						<include content="Settings_Button" description="Status Date Style">
+                            <param name="dialog">true</param>
+                            <param name="id">7026</param>
+                            <param name="control">button</param>
+                            <label>$LOCALIZE[126] $LOCALIZE[552] $LOCALIZE[736]</label>
+                            <label2>$VAR[Label_Status_DateStyle]</label2>
+                            <visible>Container(3).HasFocus(7)</visible>
+                            <visible>Skin.HasSetting(CustomRating.EnablePremiereStatusDates)</visible>
+                            <onclick condition="!Skin.String(CustomStatus.DateStyle,Long)">Skin.SetString(CustomStatus.DateStyle,Long)</onclick> 
+							<onclick condition="Skin.String(CustomStatus.DateStyle,Long)">Skin.SetString(CustomStatus.DateStyle,Short)</onclick>		
                         </include>
 
                         <include content="Settings_Label" description="Details">

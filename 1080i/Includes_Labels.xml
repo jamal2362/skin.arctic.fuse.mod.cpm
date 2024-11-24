@@ -131,6 +131,11 @@
 		<value condition="!String.IsEmpty(Skin.String(Start_Trailer))">$INFO[Skin.String(Start_Trailer)]</value>
 		<value condition="String.IsEmpty(Skin.String(Start_Trailer))">5</value>
 	</variable>	
+	
+	<variable name="Trailers_Home_Spotlight">
+		<value condition="Skin.HasSetting(Trailers.EnableAutoPlayback) + Skin.HasSetting(Trailers.EnableAutoPlayback.Home)">$LOCALIZE[335] [LOWERCASE]$LOCALIZE[20410] $LOCALIZE[21408][/LOWERCASE] X [LOWERCASE]$LOCALIZE[31130][/LOWERCASE] ($LOCALIZE[10000] & $LOCALIZE[31105])</value>
+		<value condition="Skin.HasSetting(Trailers.EnableAutoPlayback)">$LOCALIZE[335] [LOWERCASE]$LOCALIZE[20410] $LOCALIZE[21408][/LOWERCASE] X [LOWERCASE]$LOCALIZE[31130][/LOWERCASE] ($LOCALIZE[31105])</value>	
+	</variable>
 
     <variable name="Label_Settings_NavigationOnBack">
         <value condition="$EXP[Exp_Navigation_OnMenu]">$LOCALIZE[33061]</value>
@@ -1169,7 +1174,7 @@
 	</variable>
 	
 	<variable name="Label_HDRLogo_Type">
-		<value condition="Skin.String(OSD.HDRPopUp,None)">None</value>
+		<value condition="String.IsEmpty(Skin.String(OSD.HDRPopUp))">None</value>		
 		<value condition="Skin.String(OSD.HDRPopUp,DV)">Dolby Vision</value>
 		<value condition="Skin.String(OSD.HDRPopUp,HDR10)">HDR10</value>
 		<value condition="Skin.String(OSD.HDRPopUp,HLG)">HLG</value>
@@ -1376,33 +1381,45 @@
         
 		<value>$LOCALIZE[13205]</value>
     </variable>
+	
+	<variable name="Label_Status_DateStyle">
+		<value condition="Skin.String(CustomStatus.DateStyle,Long)">$LOCALIZE[33013]</value>
+		<value condition="!Skin.String(CustomStatus.DateStyle,Long)">$LOCALIZE[33012]</value>
+	</variable>
 
     <variable name="Label_ListItem_StatusDate">
         <value condition="!Skin.HasSetting(CustomRating.EnablePremiereStatusDates)" />
 
-        <value condition="String.IsEqual(Container(99950).ListItem.DBType,movie) + !String.IsEmpty(Container(99950).ListItem.Year)">$INFO[Container(99950).ListItem.Year]</value>
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + String.IsEqual(Container(99950).ListItem.DBType,movie) + !String.IsEmpty(Container(99950).ListItem.Year)">$INFO[Container(99950).ListItem.Year]</value>
+		
+		<value condition="Skin.String(CustomStatus.DateStyle,Long) + String.IsEqual(Container(99950).ListItem.DBType,movie) + !String.IsEmpty(Container(99950).ListItem.Premiered)">$INFO[Container(99950).ListItem.Premiered]</value>
+		
         <value condition="String.IsEqual(Container(99950).ListItem.DBType,movie)">$LOCALIZE[31546]</value>
 
 		<!-- Next Aired -->
 
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired),0)">$LOCALIZE[33006]</value>
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired),1)">$LOCALIZE[33007]</value>
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsLess(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired),7)">$INFO[Container(99950).ListItem.Property(Next_Aired.Day)]</value>
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Next_Aired.Year),System.Date(yyyy))">$INFO[Container(99950).ListItem.Property(Next_Aired.Short)]</value>
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))]">$INFO[Container(99950).ListItem.Property(Next_Aired.Short)] $INFO[Container(99950).ListItem.Property(Next_Aired.Year)]</value>	
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired),0)">$LOCALIZE[33006]</value>
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired),1)">$LOCALIZE[33007]</value>
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsLess(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired),7)">$INFO[Container(99950).ListItem.Property(Next_Aired.Day)]</value>
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Next_Aired.Year),System.Date(yyyy))">$INFO[Container(99950).ListItem.Property(Next_Aired.Short)]</value>
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))]">$INFO[Container(99950).ListItem.Property(Next_Aired.Short)] $INFO[Container(99950).ListItem.Property(Next_Aired.Year)]</value>	
 		<!-- Anticipated/Returning TBC -->
 		<value condition="[String.IsEmpty(Container(99950).ListItem.Property(Next_Aired.Days_Until_Aired)) | String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))] + Integer.IsLess(Container(99950).ListItem.Property(Last_Aired.Season),Container(99950).ListItem.Season)"></value>
 		
         <!-- Last Aired -->
 
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired),0)">$LOCALIZE[33006]</value>
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired),1)">$LOCALIZE[31547]</value>
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))] + Integer.IsLess(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired),7)">$INFO[Container(99950).ListItem.Property(Last_Aired.Day)]</value>
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired),0)">$LOCALIZE[33006]</value>
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired),1)">$LOCALIZE[31547]</value>
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))] + Integer.IsLess(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired),7)">$INFO[Container(99950).ListItem.Property(Last_Aired.Day)]</value>
         
 		<!-- Only show last aired date in detailed if recent and show is not officially 'Cancelled' else show year to avoid confusion about Cancelled dates meaning -->
 		
-		<value condition="[![String.IsEqual(Container(99950).ListItem.Property(Status),Canceled) | String.IsEqual(Container(99950).ListItem.Status,Canceled)]] + [!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Last_Aired.Year),System.Date(yyyy))">$INFO[Container(99950).ListItem.Property(Last_Aired.Short)]</value> 
-        <value condition="[!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))]">$INFO[Container(99950).ListItem.Property(Last_Aired.Year)]</value>
+		<value condition="!Skin.String(CustomStatus.DateStyle,Long) + [![String.IsEqual(Container(99950).ListItem.Property(Status),Canceled) | String.IsEqual(Container(99950).ListItem.Status,Canceled)]] + [!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))] + Integer.IsEqual(Container(99950).ListItem.Property(Last_Aired.Year),System.Date(yyyy))">$INFO[Container(99950).ListItem.Property(Last_Aired.Short)]</value> 
+        <value condition="!Skin.String(CustomStatus.DateStyle,Long) + [!String.IsEmpty(Container(99950).ListItem.Property(Last_Aired.Days_From_Aired)) | !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))]">$INFO[Container(99950).ListItem.Property(Last_Aired.Year)]</value>
+		
+		<!-- Long Date AF2 Style -->
+		<value condition="Skin.String(CustomStatus.DateStyle,Long) + !String.IsEmpty(Container(99950).ListItem.Property(Next_Aired))">$INFO[Container(99950).ListItem.Property(Next_Aired)]</value>
+        <value condition="Skin.String(CustomStatus.DateStyle,Long) + !String.IsEmpty(Container(99950).ListItem.Property(Last_Aired))">$INFO[Container(99950).ListItem.Property(Last_Aired)]</value>        
 		
 		<!-- TBC -->
 
@@ -1753,10 +1770,13 @@
     </variable>
 	
 	<variable name="Label_Changelog">
-		<value>- Info panel now has 3 lines of plot
-- New exanded option with artwork for 'Open path in dialog'
-- HDR pop up logos (Experimental)
-- Fixed Context Menu not pulling titles and images (poster and fanart)
+		<value>- Fix 'List' viewtypes.
+- Fix linespacing and height for 'Nunito'.
+- Change header color to better differentiate between title text.
+- Change 'Adative' dialog color.		
+- Add option to display full date in status line.
+- 'Slide' Spotlight plays full screen trailer.
+- Other small bug fixes and enhancements.
 		</value>		
 	</variable>
 

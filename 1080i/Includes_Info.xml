@@ -12,35 +12,6 @@
         </control>
     </include>
 
-    <!-- <include name="Info_Title_LogoLabel_SmallText_KodiLogo">
-        <control type="group">
-            <centertop>20</centertop>
-            <height>40</height>
-            <control type="group">
-                <left>-8</left>
-                <height>40</height>
-                <width>40</width>
-                <control type="image">
-                    <bordersize>-4</bordersize>
-                    <!-- <texture colordiffuse="$VAR[ColorHighlight]">special://skin/extras/icons/kodi.png</texture> 
-                </control>
-                <control type="image">
-                    <bordersize>-4</bordersize>
-                    <!-- <texture colordiffuse="$VAR[ColorGradient]">special://skin/extras/icons/kodi.png</texture> 
-                    <animation effect="fade" end="33" condition="true">Conditional</animation>
-                </control>
-            </control>
-            <control type="label">
-                <top>1</top>
-                <left>36</left>
-                <height>40</height>
-                <textcolor>$PARAM[colordiffuse]_100</textcolor>
-                <font>font_logo</font>
-                <label>KODI</label>
-            </control> 
-        </control>
-    </include> -->
-
     <include name="Info_Title_LogoLabel_SmallText_ArcticFuseLogo">
         <control type="group">
             <centertop>20</centertop>
@@ -72,9 +43,6 @@
     </include>
 
     <include name="Info_Title_LogoLabel_SmallText">
-        <!-- <include content="Info_Title_LogoLabel_SmallText_KodiLogo">
-            <param name="colordiffuse">$PARAM[colordiffuse]</param>
-        </include> -->
 		<control type="label">
 			<visible>!Skin.HasSetting(Multiline.Title)</visible>
             <wrapmultiline>$PARAM[wrapmultiline]</wrapmultiline>
