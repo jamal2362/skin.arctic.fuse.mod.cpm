@@ -3,6 +3,22 @@
 
     <fontset id="Default" unicode="false">
         <include>Font_Default</include>
+		
+        <font>
+            <name>OpenSansSemiCondensed</name>
+            <filename>RobotoNotoCondensed-Regular.ttf</filename>
+            <size>23</size>
+        </font>
+        <font>
+            <name>ArialUni</name>
+            <filename>arialuni.ttf</filename>
+            <size>42</size>
+        </font>
+        <font>
+            <name>ArialUniSmall</name>
+            <filename>arialuni.ttf</filename>
+            <size>23</size>
+        </font>
     </fontset>
 	
 	<fontset id="Outfit (Experimental)" unicode="false">
@@ -16,6 +32,22 @@
 			<param name="title_linespacing">0.9</param>
 			<param name="plot_linespacing">1.06</param>
         </include>
+		
+        <font>
+            <name>OpenSansSemiCondensed</name>
+            <filename>RobotoNotoCondensed-Regular.ttf</filename>
+            <size>23</size>
+        </font>
+        <font>
+            <name>ArialUni</name>
+            <filename>arialuni.ttf</filename>
+            <size>42</size>
+        </font>
+        <font>
+            <name>ArialUniSmall</name>
+            <filename>arialuni.ttf</filename>
+            <size>23</size>
+        </font>
     </fontset>
 
     <fontset id="Nunito (Experimental)" unicode="false">
@@ -29,6 +61,22 @@
 			<param name="title_linespacing">0.8</param>
 			<param name="plot_linespacing">1.0</param>
         </include>
+		
+        <font>
+            <name>OpenSansSemiCondensed</name>
+            <filename>RobotoNotoCondensed-Regular.ttf</filename>
+            <size>23</size>
+        </font>
+        <font>
+            <name>ArialUni</name>
+            <filename>arialuni.ttf</filename>
+            <size>42</size>
+        </font>
+        <font>
+            <name>ArialUniSmall</name>
+            <filename>arialuni.ttf</filename>
+            <size>23</size>
+        </font>
     </fontset>
 
     <fontset id="Inter (Experimental)" unicode="false">
@@ -42,6 +90,22 @@
 			<param name="title_linespacing">0.9</param>
 			<param name="plot_linespacing">1.1</param>
         </include>
+		
+        <font>
+            <name>OpenSansSemiCondensed</name>
+            <filename>RobotoNotoCondensed-Regular.ttf</filename>
+            <size>23</size>
+        </font>
+        <font>
+            <name>ArialUni</name>
+            <filename>arialuni.ttf</filename>
+            <size>42</size>
+        </font>
+        <font>
+            <name>ArialUniSmall</name>
+            <filename>arialuni.ttf</filename>
+            <size>23</size>
+        </font>
     </fontset>
 
     <fontset id="NotoRoboto - Arabic / Hebrew" unicode="true">
@@ -53,6 +117,22 @@
             <param name="font_light">RobotoNotoCondensed-Light.ttf</param>
             <param name="aspect_system">0.8</param>
         </include>
+		
+        <font>
+            <name>OpenSansSemiCondensed</name>
+            <filename>RobotoNotoCondensed-Regular.ttf</filename>
+            <size>23</size>
+        </font>
+        <font>
+            <name>ArialUni</name>
+            <filename>arialuni.ttf</filename>
+            <size>42</size>
+        </font>
+        <font>
+            <name>ArialUniSmall</name>
+            <filename>arialuni.ttf</filename>
+            <size>23</size>
+        </font>
     </fontset>
 
     <fontset id="CJK - Chinese / Japanese / Korean" unicode="true">
@@ -65,6 +145,22 @@
             <param name="aspect_system">0.8</param>
             <param name="aspect_standard">0.89</param>
         </include>
+		
+        <font>
+            <name>OpenSansSemiCondensed</name>
+            <filename>RobotoCJKSC-Regular.ttf</filename>
+            <size>23</size>
+        </font>
+        <font>
+            <name>ArialUni</name>
+            <filename>arialuni.ttf</filename>
+            <size>42</size>
+        </font>
+        <font>
+            <name>ArialUniSmall</name>
+            <filename>arialuni.ttf</filename>
+            <size>23</size>
+        </font>
     </fontset>
 
 </fonts>
