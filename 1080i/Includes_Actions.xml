@@ -979,6 +979,7 @@
     <variable name="Action_PlayTrailer_Trigger">
         <value condition="[Skin.HasSetting(Trailers.EnableAutoPlayback) + Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),301) + String.IsEmpty(Window.Property(Slide.WidgetContainer))]">Spotlight</value>
         <value condition="[Skin.HasSetting(Trailers.EnableAutoPlayback.Info) + Window.IsVisible(DialogVideoInfo.xml)]">VideoInfo</value>
+        <value condition="[Skin.HasSetting(Trailers.EnableAutoPlayback.Home) + Window.IsVisible(Home)]">Home</value>		
         <value>Unknown</value>
     </variable>
 

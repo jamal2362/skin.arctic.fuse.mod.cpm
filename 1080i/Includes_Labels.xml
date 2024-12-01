@@ -1141,26 +1141,36 @@
 		
 	<variable name="Label_ListItem_Sur_Tech">
 		<!-- DOLBY -->
-		<value condition="String.Contains(ListItem.FileNameAndPath,truehd) + String.IsEqual(ListItem.AudioCodec,truehd)">TRUEHD</value>
 		<value condition="String.Contains(ListItem.FileNameAndPath,atmos) + [String.IsEqual(ListItem.AudioCodec,truehd) | String.IsEqual(ListItem.AudioCodec,eac3)]">ATMOS</value>
-		<value condition="String.Contains(Container(99950).ListItem.Property(base_filenameandpath),truehd) + String.Contains(Container(99950).ListItem.Property(base_audiocodec),truehd)">TRUEHD</value>
+		<value condition="String.IsEqual(ListItem.AudioCodec,truehd)">TRUEHD</value>
 		<value condition="String.Contains(Container(99950).ListItem.Property(base_filenameandpath),atmos) + [String.IsEqual(Container(99950).ListItem.Property(base_audiocodec),truehd) | String.IsEqual(Container(99950).ListItem.Property(base_audiocodec),eac3)]">ATMOS</value>
-	
+		<value condition="String.Contains(Container(99950).ListItem.Property(base_audiocodec),truehd)">TRUEHD</value>
+			
 		<!-- DTS -->
 		<value condition="[String.Contains(ListItem.FileNameAndPath,dtsx) | String.Contains(ListItem.FileNameAndPath,dts-x)] + String.IsEqual(ListItem.AudioCodec,dtshd_ma)">DTS-X</value>
-		<value condition="[String.Contains(ListItem.FileNameAndPath,dtshd) | String.Contains(ListItem.FileNameAndPath,dts-hd)] + String.Contains(ListItem.AudioCodec,dtshd)">DTS-HD</value>
+		<value condition="String.Contains(ListItem.AudioCodec,dtshd)">DTS-HD</value>
 		<value condition="[String.Contains(Container(99950).ListItem.Property(base_filenameandpath),dtsx) | String.Contains(Container(99950).ListItem.Property(base_filenameandpath),dts-x)] + String.IsEqual(Container(99950).ListItem.Property(base_audiocodec),dtshd_ma)">DTS-X</value>
-		<value condition="[String.Contains(Container(99950).ListItem.Property(base_filenameandpath),dtshd) | String.Contains(Container(99950).ListItem.Property(base_filenameandpath),dts-hd)] + String.Contains(Container(99950).ListItem.Property(base_audiocodec),dtshd)">DTS-HD</value>
+		<value condition="String.Contains(Container(99950).ListItem.Property(base_audiocodec),dtshd)">DTS-HD</value>
 		
 		<!-- Fallback -->
 		<value condition="!String.IsEmpty(ListItem.AudioCodec)">$INFO[ListItem.AudioCodec]</value>
 		<value condition="!String.IsEmpty(Container(99950).ListItem.Property(base_audiocodec))">$INFO[Container(99950).ListItem.Property(base_audiocodec)]</value>
-	</variable>	
-	<variable name="Label_VideoPlayer_Sur_Tech">
-		<value condition="String.Contains(VideoPlayer.AudioCodec,truehd)">TRUEHD</value>
+	</variable>		
+	
+	<variable name="Label_VideoPlayer_Sur_Tech">	
+		<!-- ATMOS -->
 		<value condition="String.Contains(Player.FilenameAndPath,atmos) + [String.Contains(VideoPlayer.AudioCodec,truehd) | String.Contains(VideoPlayer.AudioCodec,eac3)]">ATMOS</value>
+		
+		<!-- TRUEHD -->
+		<value condition="String.Contains(VideoPlayer.AudioCodec,truehd)">TRUEHD</value>	
+		
+		<!-- DTS-X -->
 		<value condition="[String.Contains(Player.FilenameAndPath,dtsx) | String.Contains(Player.FilenameAndPath,dts-x)] + String.Contains(VideoPlayer.AudioCodec,dtshd_ma)">DTS-X</value>
+		
+		<!-- DTS-HD -->
 		<value condition="String.Contains(VideoPlayer.AudioCodec,dtshd)">DTS-HD</value>
+		
+		<!-- Fallback -->
 		<value condition="!String.IsEmpty(VideoPlayer.AudioCodec)">$INFO[VideoPlayer.AudioCodec]</value>
 	</variable>
 	
@@ -1357,9 +1367,12 @@
     </variable>
 
     <variable name="Label_ListItem_Status">
+		<!-- Canceled -->
         <value condition="String.IsEqual(Container(99950).ListItem.Property(Status),Canceled) | String.IsEqual(Container(99950).ListItem.Status,Canceled)">$LOCALIZE[31490]</value>
-        <value condition="String.IsEqual(Container(99950).ListItem.Property(Status),Ended) | String.IsEqual(Container(99950).ListItem.Status,Ended)">$LOCALIZE[31493]</value>
-        <value condition="String.IsEqual(Container(99950).ListItem.Property(Status),Released) | String.IsEqual(Container(99950).ListItem.Status,Released)">$LOCALIZE[31498]</value>
+        <!-- Ended -->
+		<value condition="String.IsEqual(Container(99950).ListItem.Property(Status),Ended) | String.IsEqual(Container(99950).ListItem.Status,Ended)">$LOCALIZE[31493]</value>
+        <!-- Released -->
+		<value condition="String.IsEqual(Container(99950).ListItem.Property(Status),Released) | String.IsEqual(Container(99950).ListItem.Status,Released)">$LOCALIZE[31498]</value>
         <!-- In-Production -->
 		<value condition="String.IsEqual(Container(99950).ListItem.Property(Status),In Production) | String.IsEqual(Container(99950).ListItem.Status,In Production) | String.IsEqual(Container(99950).ListItem.Property(Status),Post Production) | String.IsEqual(Container(99950).ListItem.Status,Post Production)">$LOCALIZE[31499]</value> 
         <!-- Planned -->
@@ -1375,7 +1388,7 @@
 		<!-- Returning -->
         <value condition="[String.IsEqual(Container(99950).ListItem.Property(Status),Returning Series) | String.IsEqual(Container(99950).ListItem.Status,Returning Series)] + [!String.IsEmpty(Container(99950).ListItem.Property(Next_Aired)) | !Skin.HasSetting(CustomRating.EnablePremiereStatusDates)]">$LOCALIZE[31381]</value>
 		<!-- Anticipated/Returning TBC -->
-		<value condition="[String.IsEqual(Container(99950).ListItem.Property(Status),Returning Series) | String.IsEqual(Container(99950).ListItem.Status,Returning Series)] + String.IsEmpty(Container(99950).ListItem.Property(Next_Aired)) + Integer.IsLess(Container(99950).ListItem.Property(Last_Aired.Season),Container(99950).ListItem.Season">$LOCALIZE[31543]</value>
+		<value condition="[String.IsEqual(Container(99950).ListItem.Property(Status),Returning Series) | String.IsEqual(Container(99950).ListItem.Status,Returning Series)] + String.IsEmpty(Container(99950).ListItem.Property(Next_Aired)) + Integer.IsLess(Container(99950).ListItem.Property(Last_Aired.Season),Container(99950).ListItem.Season)">$LOCALIZE[31543]</value>
 		<!-- Last Aired -->
 		<value condition="[String.IsEqual(Container(99950).ListItem.Property(Status),Returning Series) | String.IsEqual(Container(99950).ListItem.Status,Returning Series)] + Skin.HasSetting(CustomRating.EnablePremiereStatusDates)">$LOCALIZE[31555]</value> 
         
@@ -1770,12 +1783,8 @@
     </variable>
 	
 	<variable name="Label_Changelog">
-		<value>- Fix 'List' viewtypes.
-- Fix linespacing and height for 'Nunito'.
-- Change header color to better differentiate between title text.
-- Change 'Adative' dialog color.		
-- Add option to display full date in status line.
-- 'Slide' Spotlight plays full screen trailer.
+		<value>- Fixed background video window bug.
+- Added 4K and HD Movies smartplaylists.		
 - Other small bug fixes and enhancements.
 		</value>		
 	</variable>

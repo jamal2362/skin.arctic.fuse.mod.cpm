@@ -63,10 +63,13 @@
 
         <control type="group">
             <visible>!$EXP[Exp_InfoDialogs]</visible>
-            <include>Furniture_Top</include>
+            <include content="Furniture_Top">
+			
+			</include>
             <include>Animation_View_WindowChange</include>
             <include content="Hub_Widgets_Group_Furniture">
                 <param name="visible">true</param>
+				<param name="textcolor">main_fg_100</param>
             </include>
         </control>
 
