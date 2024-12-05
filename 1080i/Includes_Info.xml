@@ -1136,11 +1136,16 @@
                 <param name="label">TV</param>
                 <param name="visible">$PARAM[visible] + !$PARAM[is_8k] + !$PARAM[is_4k] + !$PARAM[is_fhd] + !$PARAM[is_hd] + !$PARAM[is_sd] + !$PARAM[is_movie] + !$PARAM[is_episode] + !$PARAM[is_video] + !$PARAM[is_season] + $PARAM[is_tv]</param>
             </include>
+			<include content="Info_Line_VideoQuality_Object">
+                <param name="colordiffuse">$PARAM[colordiffuse]</param>
+                <param name="label">PVR</param>
+                <param name="visible">$PARAM[visible] + !$PARAM[is_8k] + !$PARAM[is_4k] + !$PARAM[is_fhd] + !$PARAM[is_hd] + !$PARAM[is_sd] + !$PARAM[is_movie] + !$PARAM[is_episode] + !$PARAM[is_video] + !$PARAM[is_season] + !$PARAM[is_tv] + $PARAM[is_pvr]</param>
+            </include>
 			<include content="Info_Line_VideoQuality_Icon">
                 <param name="colordiffuse">$PARAM[colordiffuse]</param>
                 <param name="icon">flags/info-inverted.png</param>
                 <param name="width">40</param>
-                <param name="visible">$PARAM[visible] + !$PARAM[is_8k] + !$PARAM[is_4k] + !$PARAM[is_fhd] + !$PARAM[is_hd] + !$PARAM[is_sd] + !$PARAM[is_movie] + !$PARAM[is_episode] + !$PARAM[is_video] + !$PARAM[is_season] + !$PARAM[is_tv]</param>
+                <param name="visible">$PARAM[visible] + !$PARAM[is_8k] + !$PARAM[is_4k] + !$PARAM[is_fhd] + !$PARAM[is_hd] + !$PARAM[is_sd] + !$PARAM[is_movie] + !$PARAM[is_episode] + !$PARAM[is_video] + !$PARAM[is_season] + !$PARAM[is_tv] + !$PARAM[is_pvr]</param>
             </include>
 		</definition>
     </include>
@@ -1213,6 +1218,7 @@
 				<param name="is_video">[$PARAM[is_video]]</param>
 				<param name="is_season">[$PARAM[is_season]]</param>
 				<param name="is_tv">[$PARAM[is_tv]]</param>
+				<param name="is_pvr">[$PARAM[is_pvr]]</param>
             </include>
             <include content="Info_Line_VideoQuality_HDRType">
                 <param name="visible">$PARAM[visible]</param>
@@ -1260,12 +1266,13 @@
                     <param name="is_video">[String.IsEqual($PARAM[container]ListItem.DBType,video) + !String.IsEqual($PARAM[container]ListItem.Property(item.type),person)]</param>
 					<param name="is_season">[String.IsEqual($PARAM[container]ListItem.DBType,season) + !String.IsEqual($PARAM[container]ListItem.Property(item.type),person)]</param>
 					<param name="is_tv">[String.IsEqual($PARAM[container]ListItem.DBType,tvshow) + !String.IsEqual($PARAM[container]ListItem.Property(item.type),person)]</param>
+					<param name="is_pvr">[![String.IsEmpty($PARAM[container]ListItem.NextStartTime) | String.IsEmpty($PARAM[container]ListItem.NextEndTime)] + !String.IsEqual($PARAM[container]ListItem.Property(item.type),person)]</param>
 					<param name="listitem_videoresolution">$PARAM[container]ListItem.VideoResolution</param>
                     <param name="listitem_dbtype">$PARAM[container]ListItem.DBType</param>
                     <param name="listitem_hdrtype">$PARAM[container]ListItem.HdrType</param>
                     <param name="listitem_audiochannels">$PARAM[container]ListItem.AudioChannels</param>
 					<param name="listitem_audiocodec">$PARAM[container]ListItem.AudioCodec</param>
-                    <param name="visible">!Integer.IsEqual(Container($PARAM[grouplistid]).NumItems,0) + !String.IsEmpty($PARAM[container]ListItem.DBType)</param>
+                    <param name="visible">!Integer.IsEqual(Container($PARAM[grouplistid]).NumItems,0) + Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),System.CurrentControlID)</param>
                 </include>
                 <include content="Info_Line_VideoQuality">
                     <param name="colordiffuse">$PARAM[colordiffuse]_90</param>
@@ -1275,12 +1282,13 @@
 					<param name="is_video">[String.IsEqual(Container(99950).ListItem.Property(base_dbtype),video) + !String.IsEqual($PARAM[container]ListItem.Property(item.type),person)]</param>
                     <param name="is_season">[String.IsEqual(Container(99950).ListItem.Property(base_dbtype),season) + !String.IsEqual($PARAM[container]ListItem.Property(item.type),person)]</param>
 					<param name="is_tv">[String.IsEqual(Container(99950).ListItem.Property(base_dbtype),tvshow) + !String.IsEqual($PARAM[container]ListItem.Property(item.type),person)]</param>
+					<param name="is_pvr">[![String.IsEmpty(Container(99950).ListItem.Property(base_nextstarttime)) | String.IsEmpty(Container(99950).ListItem.Property(base_nextendtime))] + !String.IsEqual(Container(99950).ListItem.Property(item.type),person)]</param>
 					<param name="listitem_videoresolution">Container(99950).ListItem.Property(base_videoresolution)</param>
                     <param name="listitem_dbtype">Container(99950).ListItem.Property(base_dbtype)</param>
                     <param name="listitem_hdrtype">Container(99950).ListItem.Property(base_hdrtype)</param>
                     <param name="listitem_audiochannels">Container(99950).ListItem.Property(base_audiochannels)</param>
 					<param name="listitem_audiocodec">Container(99950).ListItem.Property(base_audiocodec)</param>
-				   <param name="visible">!Integer.IsEqual(Container($PARAM[grouplistid]).NumItems,0) + String.IsEmpty($PARAM[container]ListItem.DBType)</param>
+				   <param name="visible">!Integer.IsEqual(Container($PARAM[grouplistid]).NumItems,0) + !Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),System.CurrentControlID)</param>
                 </include>
 				
 				<!-- Belongs to a set -->                    

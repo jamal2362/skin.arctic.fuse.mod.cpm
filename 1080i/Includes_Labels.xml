@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+	 <variable name="Label_Search_NoResults">
+        <value condition="!String.IsEmpty(Control.GetLabel(9099).index(1))">$LOCALIZE[31500] "[CAPITALIZE]$VAR[Path_SearchTerm, , ][/CAPITALIZE]".[CR]$LOCALIZE[31501].</value>        
+        <value>$LOCALIZE[31560]</value>
+    </variable>
+	
+    <variable name="Label_Search_Title_NoResults">
+        <value condition="!String.IsEmpty(Control.GetLabel(9099).index(1))">$LOCALIZE[31046]</value>
+        <value>$LOCALIZE[31559]</value>
+    </variable>
+	
     <variable name="Label_Setting_SideMenuInfoPosition">
         <value condition="$EXP[Exp_HomeMenu_Info_IsHorizontal]">$LOCALIZE[31164]</value>
         <value>$LOCALIZE[31163]</value>
@@ -130,12 +140,7 @@
 	<variable name="Trailers_Delay">
 		<value condition="!String.IsEmpty(Skin.String(Start_Trailer))">$INFO[Skin.String(Start_Trailer)]</value>
 		<value condition="String.IsEmpty(Skin.String(Start_Trailer))">5</value>
-	</variable>	
-	
-	<variable name="Trailers_Home_Spotlight">
-		<value condition="Skin.HasSetting(Trailers.EnableAutoPlayback) + Skin.HasSetting(Trailers.EnableAutoPlayback.Home)">$LOCALIZE[335] [LOWERCASE]$LOCALIZE[20410] $LOCALIZE[21408][/LOWERCASE] X [LOWERCASE]$LOCALIZE[31130][/LOWERCASE] ($LOCALIZE[10000] & $LOCALIZE[31105])</value>
-		<value condition="Skin.HasSetting(Trailers.EnableAutoPlayback)">$LOCALIZE[335] [LOWERCASE]$LOCALIZE[20410] $LOCALIZE[21408][/LOWERCASE] X [LOWERCASE]$LOCALIZE[31130][/LOWERCASE] ($LOCALIZE[31105])</value>	
-	</variable>
+	</variable>		
 
     <variable name="Label_Settings_NavigationOnBack">
         <value condition="$EXP[Exp_Navigation_OnMenu]">$LOCALIZE[33061]</value>
@@ -610,6 +615,16 @@
         <value condition="Window.IsVisible(1105)">$LOCALIZE[31066]</value>
         <value>$LOCALIZE[587]</value>
     </variable>
+	
+	<variable name="Label_SearchDiscover_Switch">
+		<value condition="Skin.HasSetting(SideMenu.EnableSearchAndOptions) + Skin.HasSetting(SideMenu.SwapSearchForDiscover)">$LOCALIZE[31066]</value>
+		<value condition="Skin.HasSetting(SideMenu.EnableSearchAndOptions) + !Skin.HasSetting(SideMenu.SwapSearchForDiscover)">$LOCALIZE[137]</value>
+	</variable>
+	
+	<variable name="Label_Home_OnUp">
+		<value condition="!Skin.HasSetting(Home.OnUp.Hub)">$LOCALIZE[31446]</value>
+		<value condition="Skin.HasSetting(Home.OnUp.Hub)">$VAR[Label_SearchDiscover_Switch]</value>
+	</variable>
 
     <variable name="Label_Setting_BackgroundVideo">
         <value condition="Skin.HasSetting(Background.DisableVideo)">$LOCALIZE[13106]</value>
@@ -1783,8 +1798,8 @@
     </variable>
 	
 	<variable name="Label_Changelog">
-		<value>- Fixed background video window bug.
-- Added 4K and HD Movies smartplaylists.		
+		<value>- Updated auto trailers now work with random widgets.
+- Replaced 'Outfit' with 'Figtree' font.		
 - Other small bug fixes and enhancements.
 		</value>		
 	</variable>

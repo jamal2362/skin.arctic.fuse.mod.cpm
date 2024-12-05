@@ -5,18 +5,18 @@
         <include>Font_Default</include>
     </fontset>
 	
-	<fontset id="Outfit (Experimental)" unicode="false">
+	<fontset id="Figtree (Experimental)" unicode="false">
         <include content="Font_Default">
-            <param name="font_black">Outfit-Bold.ttf</param>
-            <param name="font_bold">Outfit-Bold.ttf</param>
-            <param name="font_regular">Outfit-Regular.ttf</param>
-            <param name="font_light">Outfit-Light.ttf</param>
+            <param name="font_black">Figtree-Bold.ttf</param>
+            <param name="font_bold">Figtree-Bold.ttf</param>
+            <param name="font_regular">Figtree-Regular.ttf</param>
+            <param name="font_light">Figtree-Light.ttf</param>
             <param name="aspect_system">0.8</param>
             <param name="aspect_standard">1</param>
-			<param name="title_linespacing">0.9</param>
-			<param name="plot_linespacing">1.06</param>
+			<param name="title_linespacing">1</param>
+			<param name="plot_linespacing">1.1</param>
         </include>
-    </fontset>
+    </fontset>	
 
     <fontset id="Nunito (Experimental)" unicode="false">
         <include content="Font_Default">

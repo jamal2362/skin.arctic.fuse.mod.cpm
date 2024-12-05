@@ -8,6 +8,9 @@
     <menucontrol>4000</menucontrol>
 
     <include>DialogInfo_Onload</include>
+	
+	<onload condition="Skin.HasSetting(Trailers.EnableAutoPlayback.Info) + Skin.HasSetting(Background.DisableVideo) + !String.IsEmpty(ListItem.Trailer) + !Player.HasMedia">SetProperty(PlayTrailer,$ESCINFO[ListItem.Trailer],Home)</onload>
+    <onload condition="Skin.HasSetting(Trailers.EnableAutoPlayback.Info) + Skin.HasSetting(Background.DisableVideo) + !String.IsEmpty(ListItem.Trailer) + !Player.HasMedia">ActivateWindow(1123)</onload>
 
     <controls>
         <include>Defs_TMDbHelper_Loader</include>

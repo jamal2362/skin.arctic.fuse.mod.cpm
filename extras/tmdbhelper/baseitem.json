@@ -30,6 +30,8 @@
     "hdrtype": {"infolabels": ["hdrtype"]},
     "audiochannels": {"infolabels": ["audiochannels"]},
 	"audiocodec": {"infolabels": ["audiocodec"]},
-	"filenameandpath":{"infolabels": ["filenameandpath"]}
+	"filenameandpath": {"infolabels": ["filenameandpath"]},
+	"nextstarttime": {"infolabels": ["nextstarttime"]},
+	"nextendtime": {"infolabels": ["nextendtime"]}
 }
 
