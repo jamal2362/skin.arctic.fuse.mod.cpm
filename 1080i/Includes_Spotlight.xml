@@ -195,48 +195,45 @@
                         <control type="group">			
                             <visible>!Control.HasFocus(311)</visible>
 							<control type="image">
-								<height>106</height>
-								<width>100%</width>
+								<height>100%</height>
+								<width>270</width>
 								<bordersize>0,12,0,12</bordersize>
                                 <texture colordiffuse="main_fg_12">common/menu.png</texture>
                             </control>
-								<control type="image">
+							<control type="image">
 								<bordersize>12</bordersize>
 								<left>-1%</left>
 								<width>100</width>
-                                <texture colordiffuse="main_fg_90">special://skin/extras/icons/play2.png</texture>
-							
-							</control> 
-							
+                                <texture colordiffuse="main_fg_90">$VAR[Image_FullscreenWidget_PlayButton]</texture>
+							</control> 							
 							<control type="label">	
-							<left>30%</left>
-							<width>auto</width>
-							<label>$VAR[Label_FullscreenWidget_PlayButton]</label>
-							<font>font_main</font>
-							<textcolor>main_fg_90</textcolor>
+								<left>30%</left>
+								<width>auto</width>
+								<label>$VAR[Label_FullscreenWidget_PlayButton]</label>
+								<font>font_main</font>
+								<textcolor>main_fg_90</textcolor>
 							</control>							
                         </control>
 						
                         <control type="group">
                             <visible>Control.HasFocus(311)</visible>
                             <control type="image">
+								<width>270</width>
 								<bordersize>0,12,0,12</bordersize>
                                 <include>Texture_Menu_Highlight_H</include>
-                            </control>
-                            
-								<control type="image">
+                            </control>                            
+							<control type="image">
                                 <bordersize>12</bordersize>
 								<left>-1%</left>
 								<width>100</width>
-                                <texture colordiffuse="main_fg_90">special://skin/extras/icons/play2.png</texture>
-								</control>   
-								
+                                <texture colordiffuse="main_fg_90">$VAR[Image_FullscreenWidget_PlayButton]</texture>
+							</control> 								
 							<control type="label">
-							<left>30%</left>	
-							<width>auto</width>							
-							<label>$VAR[Label_FullscreenWidget_PlayButton]</label>
-							<font>font_main</font>
-							<textcolor>main_fg_90</textcolor>
+								<left>30%</left>	
+								<width>auto</width>							
+								<label>$VAR[Label_FullscreenWidget_PlayButton]</label>
+								<font>font_main</font>
+								<textcolor>main_fg_90</textcolor>
 							</control>																
                         </control>
 							
@@ -310,7 +307,7 @@
                     </control>
 
                     <control type="group" id="319">
-                        <left>-80</left>
+                        <left>-110</left>
                         <width>0</width>
                     </control>
 

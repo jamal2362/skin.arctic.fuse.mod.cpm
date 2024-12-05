@@ -1031,8 +1031,8 @@
 
     <variable name="Label_FullscreenWidget_PlayButton">
         <value condition="!$EXP[Exp_Hubs_Spotlight_HasItems]">$LOCALIZE[21483]</value>
-        <value condition="Container(301).ListItem.IsFolder">$LOCALIZE[31557]</value>
-        <value>$LOCALIZE[31556]</value>
+        <value condition="Container(301).ListItem.IsFolder">$LOCALIZE[1024]</value>
+        <value>$LOCALIZE[208]</value>
     </variable>
 
     <variable name="Label_DialogInfo_PlayButton">
@@ -1798,8 +1798,7 @@
     </variable>
 	
 	<variable name="Label_Changelog">
-		<value>- Updated auto trailers now work with random widgets.
-- Replaced 'Outfit' with 'Figtree' font.		
+		<value>- Trailer bug fix.		
 - Other small bug fixes and enhancements.
 		</value>		
 	</variable>
