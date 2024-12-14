@@ -70,6 +70,14 @@
         <height>480</height>
         <width>1120</width>
     </include>
+	
+    <include name="Dimension_DialogVS10">
+        <bottom>40</bottom>
+        <width>520</width>
+        <centertop>50%</centertop>
+        <centerleft>50%</centerleft>
+        <height>600</height>
+    </include>
 
     <include name="Dimension_Info">
         <left>view_side</left>
